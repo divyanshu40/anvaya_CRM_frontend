@@ -10,14 +10,18 @@ const CategorizeLeads = () => {
   const [newLeads, setNewLeads] = useState(null);
   const [contactedLeads, setContactedLeads] = useState(null);
   const [qualifiedLeads, setQualifiedLeads] = useState(null);
+  const [proposedLeads, setProposedLeads] = useState(null);
+  const [closedLeads, setClosedLeads] = useState(null);
 
   useEffect(() => {
     setNewLeads(leads?.filter((lead) => lead.status === "New"));
     setContactedLeads(leads?.filter((lead) => lead.status === "Contacted"));
     setQualifiedLeads(leads?.filter((lead) => lead.status === "Qualified"));
+    setProposedLeads(leads?.filter((lead) => lead.status === "Proposal Sent"));
+    setClosedLeads(leads?.filter((lead) => lead.status === "Closed"));
   }, [leads]);
   return (
-    <div className='mt-4 row container'>
+    <div className='mt-4 row container g-2'>
       <div className='col'>
         <div className='card'>
           <div className='card-body'>
@@ -52,6 +56,32 @@ const CategorizeLeads = () => {
               <div className='ms-4'>
                 <p className='fs-5 fw-medium'>{qualifiedLeads?.length}</p>
                 <p className='fs-5 fw-normal'>Qualified Leads</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div className='col'>
+        <div className='card'>
+          <div className='card-body'>
+            <div className='d-flex'>
+              <i className='bi bi-envelope' style={{ color: "black" , fontSize: "30px"}}></i>
+              <div className='ms-4'>
+                <p className='fs-5 fw-medium'>{proposedLeads?.length}</p>
+                <p className='fs-5 fw-normal'>Proposed Leads</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div className='col'>
+        <div className='card'>
+          <div className='card-body'>
+            <div className='d-flex'>
+              <i className='bi bi-door-closed-fill' style={{ color: "red" , fontSize: "30px"}}></i>
+              <div className='ms-4'>
+                <p className='fs-5 fw-medium'>{closedLeads?.length}</p>
+                <p className='fs-5 fw-normal'>Closed Leads</p>
               </div>
             </div>
           </div>
