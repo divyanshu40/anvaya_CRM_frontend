@@ -40,11 +40,11 @@ const LeadsByStatus = ({leadsStatus}) => {
             <div className="card-body">
                 <div className="d-flex justify-content-between">
                     <div className="d-flex">
-                        {leadsStatus === "New" && <span className="badge rounded-pill text-bg-primary" style={{ height: "30px"}}>{leadsStatus}</span>}
-                        {leadsStatus === "Contacted" && <span className="badge rounded-pill text-bg-warning" style={{ height: "30px"}}>{leadsStatus}</span>}
-                        {leadsStatus === "Qualified" && <span className="badge rounded-pill text-bg-success" style={{ height: "30px"}}>{leadsStatus}</span>}
-                        {leadsStatus === "Proposal Sent" && <span className="badge rounded-pill text-bg-secondary" style={{ height: "30px"}}>{leadsStatus}</span>}
-                        {leadsStatus === "Closed" && <span className="badge rounded-pill text-bg-danger" style={{ height: "30px"}}>{leadsStatus}</span>}
+                        {leadsStatus === "New" && <span className="badge rounded-pill text-bg-primary position-relative" style={{ height: "30px"}}><p className="position-relative top-50 start-50 translate-middle">{leadsStatus}</p></span>}
+                        {leadsStatus === "Contacted" && <span className="badge rounded-pill text-bg-warning position-relative" style={{ height: "30px"}}><p className="position-relative top-50 start-50 translate-middle">{leadsStatus}</p></span>}
+                        {leadsStatus === "Qualified" && <span className="badge rounded-pill text-bg-success position-relative" style={{ height: "30px"}}><p className="position-relative top-50 start-50 translate-middle">{leadsStatus}</p></span>}
+                        {leadsStatus === "Proposal Sent" && <span className="badge rounded-pill text-bg-secondary position-relative" style={{ height: "30px"}}><p className="position-relative top-50 start-50 translate-middle">{leadsStatus}</p></span>}
+                        {leadsStatus === "Closed" && <span className="badge rounded-pill text-bg-danger position-relative" style={{ height: "30px"}}><p className="position-relative top-50 start-50 translate-middle">{leadsStatus}</p></span>}
                         <p className="fs-5 fw-medium ms-4">{filteredLeads?.length} Leads</p>
                     </div>
                     {displayLeadsList ? <i className="bi bi-chevron-up" style={{ fontSize: "30px"}}></i> : <i className="bi bi-chevron-down" style={{ fontSize: "30px"}}></i>}

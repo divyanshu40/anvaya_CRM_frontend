@@ -257,35 +257,6 @@ const LeadList = ({obj, backgroundColor}) => {
     const { sortLeads, setSortLeads, filter, setFilter, sortBy, setSortBy } = useContext(DisplayComponentContext);
     const { sortedLeads, setSortedLeads } = useContext(LeadContext);
 
-    const deleteLeadHandler = async (leadId) => {
-        setLoading(true);
-        try {
-            let leadDeletingResponse = await fetch(`https://anvaya-crm-backend-omega.vercel.app/leads/delete/${leadId}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
-            if (! leadDeletingResponse.ok) {
-                throw new Error("Failed to delete lead");
-            }
-            let response = await fetch("https://anvaya-crm-backend-omega.vercel.app/leads");
-            if (!response.ok) {
-                throw new Error("Failed to fetch leads");
-            }
-            let responseData = await response.json();
-            setFilteredLeads(responseData);
-            setFilter({});
-            setSortBy("");
-            setSortLeads(false);
-            setStatusFilterOption("");
-            setSalesAgentFilterOption("");
-            setTagFilterOption("");
-            setLoading(false);
-        } catch(error) {
-            console.error('Error: ', error)
-        }
-    }
 
     return (
              <div className="row py-2">
@@ -331,7 +302,10 @@ const DisplayLeads = () => {
         updatedLeadData, 
         setUpdatedLeadData, 
         displayUpdateLeadForm, 
-        setDisplayUpdateLeadForm 
+        setDisplayUpdateLeadForm,
+        sortedLeads,
+        setSortedLeads ,
+        setFilteredLeads
     } = useContext(LeadContext);
     const [selectedLeadId, setSelectedLeadId] = useState("");
     const { 
@@ -342,7 +316,36 @@ const DisplayLeads = () => {
         setSalesAgentFilterOption,
         setTagFilterOption
     } = useContext(DisplayComponentContext);
-    const { sortedLeads, setSortedLeads } = useContext(LeadContext);
+
+     const deleteLeadHandler = async (leadId) => {
+        setLoading(true);
+        try {
+            let leadDeletingResponse = await fetch(`https://anvaya-crm-backend-omega.vercel.app/leads/delete/${leadId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            if (! leadDeletingResponse.ok) {
+                throw new Error("Failed to delete lead");
+            }
+            let response = await fetch("https://anvaya-crm-backend-omega.vercel.app/leads");
+            if (!response.ok) {
+                throw new Error("Failed to fetch leads");
+            }
+            let responseData = await response.json();
+            setFilteredLeads(responseData);
+            setFilter({});
+            setSortBy("");
+            setSortLeads(false);
+            setStatusFilterOption("");
+            setSalesAgentFilterOption("");
+            setTagFilterOption("");
+            setLoading(false);
+        } catch(error) {
+            console.error('Error: ', error)
+        }
+    }
 
     
     return (
