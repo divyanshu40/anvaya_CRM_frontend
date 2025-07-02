@@ -29,7 +29,7 @@ const CategorizeLeads = () => {
               <i className='bi bi-clock' style={{ color: "blue" , fontSize: "30px"}}></i>
               <div className='ms-4'>
                 <p className='fs-5 fw-medium'>{newLeads?.length}</p>
-                <p className='fw-normal fs-5'>New Leads</p>
+                <p className='fw-medium'>New Leads</p>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ const CategorizeLeads = () => {
               <i className='bi bi-telephone' style={{ color: "orange" , fontSize: "30px"}}></i>
               <div className='ms-4'>
                 <p className='fs-5 fw-medium'>{contactedLeads?.length}</p>
-                <p className='fs-5 fw-normal'>Contacted Leads</p>
+                <p className='fw-medium'>Contacted Leads</p>
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@ const CategorizeLeads = () => {
               <i className='bi bi-check2-circle' style={{ color: "green" , fontSize: "30px"}}></i>
               <div className='ms-4'>
                 <p className='fs-5 fw-medium'>{qualifiedLeads?.length}</p>
-                <p className='fs-5 fw-normal'>Qualified Leads</p>
+                <p className='fw-medium'>Qualified Leads</p>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ const CategorizeLeads = () => {
               <i className='bi bi-envelope' style={{ color: "black" , fontSize: "30px"}}></i>
               <div className='ms-4'>
                 <p className='fs-5 fw-medium'>{proposedLeads?.length}</p>
-                <p className='fs-5 fw-normal'>Proposed Leads</p>
+                <p className='fw-medium'>Proposed Leads</p>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ const CategorizeLeads = () => {
               <i className='bi bi-door-closed-fill' style={{ color: "red" , fontSize: "30px"}}></i>
               <div className='ms-4'>
                 <p className='fs-5 fw-medium'>{closedLeads?.length}</p>
-                <p className='fs-5 fw-normal'>Closed Leads</p>
+                <p className='fw-medium'>Closed Leads</p>
               </div>
             </div>
           </div>
