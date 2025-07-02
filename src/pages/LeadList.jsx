@@ -83,7 +83,7 @@ const FilterElements = () => {
     useEffect(() => {
     setLoading(true);
     axios
-        .get("https://anvaya-crm-backend-mu.vercel.app/leads/filter", { params: filter })
+        .get("https://anvaya-crm-backend-omega.vercel.app/leads/filter", { params: filter })
         .then((response) => {
             // Axios already gives you parsed data
             setFilteredLeads(response.data);
@@ -260,7 +260,7 @@ const LeadList = ({obj, backgroundColor}) => {
     const deleteLeadHandler = async (leadId) => {
         setLoading(true);
         try {
-            let leadDeletingResponse = await fetch(`https://anvaya-crm-backend-mu.vercel.app/leads/delete/${leadId}`, {
+            let leadDeletingResponse = await fetch(`https://anvaya-crm-backend-omega.vercel.app/leads/delete/${leadId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
@@ -269,7 +269,7 @@ const LeadList = ({obj, backgroundColor}) => {
             if (! leadDeletingResponse.ok) {
                 throw new Error("Failed to delete lead");
             }
-            let response = await fetch("https://anvaya-crm-backend-mu.vercel.app/leads");
+            let response = await fetch("https://anvaya-crm-backend-omega.vercel.app/leads");
             if (!response.ok) {
                 throw new Error("Failed to fetch leads");
             }

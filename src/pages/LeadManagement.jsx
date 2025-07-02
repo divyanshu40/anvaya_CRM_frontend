@@ -14,7 +14,7 @@ const LeadDetails = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://anvaya-crm-backend-mu.vercel.app/lead/details/${id}`)
+        fetch(`https://anvaya-crm-backend-omega.vercel.app/lead/details/${id}`)
         .then((response) => {
             if (! response.ok) {
                 let errorData = response.json();
@@ -131,7 +131,7 @@ const CommentsSection = () => {
 
     const addCommentHandler = async () => {
         try {
-            let addCommentResponse = await fetch("https://anvaya-crm-backend-mu.vercel.app/comment/new", {
+            let addCommentResponse = await fetch("https://anvaya-crm-backend-omega.vercel.app/comment/new", {
                 method: "POST",
                 body: JSON.stringify(newCommentData),
                 headers: {
@@ -141,7 +141,7 @@ const CommentsSection = () => {
             if (! addCommentResponse.ok) {
                 throw new Error("Failed to add comment");
             }
-            let response = await fetch(`https://anvaya-crm-backend-mu.vercel.app/comments/lead/${id}`);
+            let response = await fetch(`https://anvaya-crm-backend-omega.vercel.app/comments/lead/${id}`);
             if (! response.ok) {
                 throw new Error("Failed to fetch comments");
             }
@@ -153,7 +153,7 @@ const CommentsSection = () => {
     }
 
     useEffect(() => {
-        fetch(`https://anvaya-crm-backend-mu.vercel.app/comments/lead/${id}`)
+        fetch(`https://anvaya-crm-backend-omega.vercel.app/comments/lead/${id}`)
         .then((response) => {
             if (! response.ok) {
                 throw new Error("Failed to fetch comments");

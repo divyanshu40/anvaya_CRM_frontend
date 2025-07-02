@@ -57,8 +57,8 @@ const LeadsClosedLastWeek = () => {
     useEffect(() => {
        async function fetchData() {
          try {
-            let closedLeadsResponse = await fetch("https://anvaya-crm-backend-mu.vercel.app/leads/closed/last-week");
-            let leadsInPipelineResponse = await fetch("https://anvaya-crm-backend-mu.vercel.app/leads/pipeline");
+            let closedLeadsResponse = await fetch("https://anvaya-crm-backend-omega.vercel.app/leads/closed/last-week");
+            let leadsInPipelineResponse = await fetch("https://anvaya-crm-backend-omega.vercel.app/leads/pipeline");
             let closedLeadsData = await closedLeadsResponse.json();
             let leadsInPipelineData = await leadsInPipelineResponse.json();
             setLastWeekClosedLeads(closedLeadsData);

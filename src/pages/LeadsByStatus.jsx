@@ -75,7 +75,7 @@ const LeadsByStatus = ({leadsStatus}) => {
     }
 
     useEffect(() => {
-        axios.get("https://anvaya-crm-backend-mu.vercel.app/leads/filter", { params:filter })
+        axios.get("https://anvaya-crm-backend-omega.vercel.app/leads/filter", { params:filter })
         .then((res) => {
             setFilteredLeads(res.data);
             setError(null);
