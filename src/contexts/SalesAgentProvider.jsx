@@ -8,7 +8,7 @@ const SalesAgentProvider = ({children}) => {
     const [displayAddNewAgentForm, setDisplayAddNewAgentForm] = useState(false);
 
     useEffect(() => {
-        fetch("https://anvaya-crm-backend-mu.vercel.app/salesAgents")
+        fetch("https://anvaya-crm-backend-omega.vercel.app/salesAgents")
         .then((response) => {
             if (! response.ok) {
                 throw new Error("failed to fetch sales agents");

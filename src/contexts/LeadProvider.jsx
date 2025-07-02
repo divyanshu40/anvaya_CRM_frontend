@@ -15,7 +15,7 @@ const LeadProvider = ({ children }) => {
     const [displayUpdateLeadForm, setDisplayUpdateLeadForm] = useState(false);
      useEffect(() => {
         setLoading(true);
-        fetch("https://anvaya-crm-backend-mu.vercel.app/leads")
+        fetch("https://anvaya-crm-backend-omega.vercel.app/leads")
         .then((response) => {
             if (! response.ok) {
                 throw new Error("Failed to fetch leads");
@@ -35,7 +35,7 @@ const LeadProvider = ({ children }) => {
 
      useEffect(() => {
         setLoading(true);
-        fetch("https://anvaya-crm-backend-mu.vercel.app/leads/filter")
+        fetch("https://anvaya-crm-backend-omega.vercel.app/leads/filter")
         .then((response) => {
             if (! response.ok) {
                 throw new Error("Failed to fetch leads");
