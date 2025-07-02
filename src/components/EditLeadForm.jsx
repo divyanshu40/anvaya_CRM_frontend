@@ -63,6 +63,10 @@ const EditLeadForm = () => {
      return (
         <div className="bg-light py-4">
            <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="col-md-8">
+                <div className="card">
+                  <div className="card-body">
               <h4 className="display-5 my-4">Edit Lead Details</h4>
               <form onSubmit={formSubmitHandler}>
                        <div className="col-md-4">
@@ -256,6 +260,10 @@ const EditLeadForm = () => {
       <button type="submit" className="btn btn-primary ms-4">Save</button>
         </div>
     </form>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 </div>
 
