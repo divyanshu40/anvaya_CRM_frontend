@@ -21,7 +21,7 @@ const CategorizeLeads = () => {
     setClosedLeads(leads?.filter((lead) => lead.status === "Closed"));
   }, [leads]);
   return (
-    <div className='mt-4 row container d-flex justify-content-center'>
+    <div className='mt-4 row container'>
       <div className='col-md-2'>
         <div className='card'>
           <div className='card-body'>
