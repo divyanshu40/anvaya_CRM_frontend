@@ -43,10 +43,10 @@ const Navbar = () => {
                 }}><i className="bi bi-bar-chart-fill"></i> Report</NavLink>}
             </li>
             <li className="nav-item mt-4">
-                {(backgroundColor && navElement === "Settings") ? <NavLink className="nav-link fs-5 fw-medium" style={{ color: "black", backgroundColor: "lightblue"}} onMouseLeave={() => {
+                {(backgroundColor && navElement === "Settings") ? <NavLink to="/leads" className="nav-link fs-5 fw-medium" style={{ color: "black", backgroundColor: "lightblue"}} onMouseLeave={() => {
                     setBackgroundColor(false);
                     setNavElement("")
-                }}><i className="bi bi-gear"></i> Settings</NavLink> : <NavLink className="nav-link fs-5 fw-medium" style={{ color: "black"}} onMouseEnter={() => {
+                }}><i className="bi bi-gear"></i> Settings</NavLink> : <NavLink to="/leads" className="nav-link fs-5 fw-medium" style={{ color: "black"}} onMouseEnter={() => {
                     setBackgroundColor(true);
                     setNavElement("Settings")
                 }}><i className="bi bi-gear"></i> Settings</NavLink>}
