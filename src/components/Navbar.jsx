@@ -16,10 +16,10 @@ const Navbar = () => {
                 }}><i className="bi bi-people"></i> Leads</NavLink>}
             </li>
           <li className="nav-item mt-4">
-                {(backgroundColor && navElement === "Sales") ? <NavLink className="nav-link fs-5 fw-medium" style={{ color: "black", backgroundColor: "lightblue"}} onMouseLeave={() => {
+                {(backgroundColor && navElement === "Sales") ? <NavLink to="/salesAgents" className="nav-link fs-5 fw-medium" style={{ color: "black", backgroundColor: "lightblue"}} onMouseLeave={() => {
                     setBackgroundColor(false);
                     setNavElement("")
-                }}><i className="bi bi-graph-up-arrow"></i> Sales</NavLink> : <NavLink className="nav-link fs-5 fw-medium" style={{ color: "black"}} onMouseEnter={() => {
+                }}><i className="bi bi-graph-up-arrow"></i> Sales</NavLink> : <NavLink to="/salesAgents" className="nav-link fs-5 fw-medium" style={{ color: "black"}} onMouseEnter={() => {
                     setBackgroundColor(true);
                     setNavElement("Sales")
                 }}><i className="bi bi-graph-up-arrow"></i> Sales</NavLink>}
