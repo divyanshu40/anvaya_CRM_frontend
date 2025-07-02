@@ -36,7 +36,7 @@ const EditLeadForm = () => {
           } else {
             leadData = updatedLeadData
           }
-            let updatedResponse = await fetch(`https://anvaya-crm-backend-mu.vercel.app/leads/update/${updatedLeadData._id}`, {
+            let updatedResponse = await fetch(`https://anvaya-crm-backend-omega.vercel.app/leads/update/${updatedLeadData._id}`, {
                 method: "POST",
                 body: JSON.stringify(leadData),
                 headers: {
@@ -46,7 +46,7 @@ const EditLeadForm = () => {
             if (! updatedResponse.ok) {
                 throw new Error("Failed to edit lead");
             }
-            let response = await fetch("https://anvaya-crm-backend-mu.vercel.app/leads");
+            let response = await fetch("https://anvaya-crm-backend-omega.vercel.app/leads");
             if (! response.ok) {
                 throw new Error("failed to fetch leads");
             }

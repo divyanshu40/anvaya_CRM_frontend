@@ -7,7 +7,7 @@ const SalesAgentForm = () => {
 
     const formSubmitHandler = async (event) => {
         event.preventDefault();
-        let salesAgentAddingResponse = await fetch("https://anvaya-crm-backend-mu.vercel.app/salesAgent/new", {
+        let salesAgentAddingResponse = await fetch("https://anvaya-crm-backend-omega.vercel.app/salesAgent/new", {
             method: "POST",
             body: JSON.stringify(newSalesAgentData),
             headers: {
@@ -17,7 +17,7 @@ const SalesAgentForm = () => {
         if (! salesAgentAddingResponse.ok) {
             throw new Error("Faled to add new sales agent");
         }
-        let response = await fetch("https://anvaya-crm-backend-mu.vercel.app/salesAgents");
+        let response = await fetch("https://anvaya-crm-backend-omega.vercel.app/salesAgents");
         if (! response.ok) {
             throw new Error("Failed to fetch sales agents");
         }

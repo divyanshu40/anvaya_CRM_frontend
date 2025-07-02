@@ -34,7 +34,7 @@ const AddLeadForm = () => {
         event.preventDefault();
         setLoading(true);
         try {
-            let leadAddingResponse = await fetch("https://anvaya-crm-backend-mu.vercel.app/lead/new", {
+            let leadAddingResponse = await fetch("https://anvaya-crm-backend-omega.vercel.app/lead/new", {
                 method: "POST",
                 body: JSON.stringify(leadData),
                 headers: {
@@ -44,7 +44,7 @@ const AddLeadForm = () => {
             if (! leadAddingResponse.ok) {
                 throw new Error("Failed to add new lead");
             }
-            let response = await fetch("https://anvaya-crm-backend-mu.vercel.app/leads");
+            let response = await fetch("https://anvaya-crm-backend-omega.vercel.app/leads");
             if (! response.ok) {
                 throw new Error("Failed to fetch leads");
             }
