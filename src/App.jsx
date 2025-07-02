@@ -21,8 +21,8 @@ const CategorizeLeads = () => {
     setClosedLeads(leads?.filter((lead) => lead.status === "Closed"));
   }, [leads]);
   return (
-    <div className='mt-4 row container g-2'>
-      <div className='col'>
+    <div className='mt-4 row container d-flex justify-content-center'>
+      <div className='col-md-2'>
         <div className='card'>
           <div className='card-body'>
             <div className='d-flex'>
@@ -35,7 +35,7 @@ const CategorizeLeads = () => {
           </div>
         </div>
       </div>
-      <div className='col'>
+      <div className='col-md-2'>
         <div className='card'>
           <div className='card-body'>
             <div className='d-flex'>
@@ -48,7 +48,7 @@ const CategorizeLeads = () => {
           </div>
         </div>
       </div>
-      <div className='col'>
+      <div className='col-md-2'>
         <div className='card'>
           <div className='card-body'>
             <div className='d-flex'>
@@ -61,7 +61,7 @@ const CategorizeLeads = () => {
           </div>
         </div>
       </div>
-       <div className='col'>
+       <div className='col-md-2'>
         <div className='card'>
           <div className='card-body'>
             <div className='d-flex'>
@@ -74,7 +74,7 @@ const CategorizeLeads = () => {
           </div>
         </div>
       </div>
-       <div className='col'>
+       <div className='col-md-2'>
         <div className='card'>
           <div className='card-body'>
             <div className='d-flex'>
