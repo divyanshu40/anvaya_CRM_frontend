@@ -210,7 +210,7 @@ const DisplayLeads = () => {
 }
 
 const DisplayDashboard = ({children}) => {
-
+const { message } = useContext(LeadContext);
   return (
      <div>
       <div className='row'>
@@ -226,6 +226,15 @@ const DisplayDashboard = ({children}) => {
         <div className='col-md-2'>
           <Navbar/>
         </div>
+        {message && <div className='row py-4 d-flex justify-content-center'>
+             <div className='col-md-4'>
+              <div className='card text-light' style={{ backgroundColor: "grey"}}>
+                <div className='card-body'>
+                  <p className='fs-5 fw-medium'>{message}</p>
+                </div>
+              </div>
+             </div>
+          </div>}
         <div className='col bg-light'>
           {children}
         </div>
@@ -236,14 +245,14 @@ const DisplayDashboard = ({children}) => {
 
 function App() {
   return (
-    <DisplayDashboard>
-      <SalesAgentProvider>
-        <LeadProvider>
+    <SalesAgentProvider>
+      <LeadProvider>
+        <DisplayDashboard>
           <CategorizeLeads/>
           <DisplayLeads/>
-        </LeadProvider>
-      </SalesAgentProvider>
-    </DisplayDashboard>
+        </DisplayDashboard>
+      </LeadProvider>
+    </SalesAgentProvider>
   )
 }
 
