@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { SalesAgentContext } from "../contexts/SalesAgentProvider";
 
 const SalesAgentForm = () => {
-    const { setSalesAgents, setDisplayAddNewAgentForm } = useContext(SalesAgentContext);
+    const { setSalesAgents, setDisplayAddNewAgentForm, setMessage } = useContext(SalesAgentContext);
     const [newSalesAgentData, setNewSalesAgentData] = useState({ name: "", email: "" });
 
     const formSubmitHandler = async (event) => {
@@ -23,7 +23,11 @@ const SalesAgentForm = () => {
         }
         let responseData = await response.json();
         setSalesAgents(responseData);
+        setMessage("Sales agent added successfully");
         setDisplayAddNewAgentForm(false);
+        setTimeout(() => {
+            setMessage("");
+        }, 5000);
     }
 
     return (

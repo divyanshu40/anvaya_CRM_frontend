@@ -13,7 +13,8 @@ const EditLeadForm = () => {
          leads, 
          setLeads, 
          filteredLeads, 
-         setFilteredLeads
+         setFilteredLeads,
+         setMessage
         } = useContext(LeadContext);
     const { salesAgents } = useContext(SalesAgentContext);
     const [displayTags, setDisplayTags] = useState(false);
@@ -53,7 +54,11 @@ const EditLeadForm = () => {
             let responseData = await response.json();
             setLeads(responseData);
             setFilteredLeads(responseData);
+            setMessage("Lead updated successfully")
             setDisplayUpdateLeadForm(false);
+            setTimeout(() => {
+              setMessage("");
+            }, 5000);
             
         } catch(error) {
             console.error('Error: ', error);

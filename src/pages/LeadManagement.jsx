@@ -231,6 +231,7 @@ const CommentsSection = () => {
 
 const LeadManagementComponents = ({children}) => {
     const { id } = useParams();
+    const { message } = useContext(LeadContext);
 
     return (
     <div>
@@ -250,6 +251,15 @@ const LeadManagementComponents = ({children}) => {
             <div className="col bg-light py-4">
                 <div className="container">
                     <LeadManagementContext.Provider value={{ id }}>
+                        {message && <div className="row d-flex justify-content-center py-4">
+                          <div className="col-md-4">
+                            <div className="card" style={{ backgroundColor: "grey"}}>
+                                <div className="card-body text-light">
+                                    <p className="fs-5 fw-medium">{message}</p>
+                                </div>
+                            </div>
+                          </div>
+                        </div>}
                         {children}
                     </LeadManagementContext.Provider>
                 </div>
@@ -261,14 +271,14 @@ const LeadManagementComponents = ({children}) => {
 
 const LeadManagementPage = () => {
     return (
-        <LeadManagementComponents>
-            <SalesAgentProvider>
-                <LeadProvider>
+        <SalesAgentProvider>
+            <LeadProvider>
+                <LeadManagementComponents>
                     <LeadDetails/>
                     <CommentsSection/>
-                </LeadProvider>
-            </SalesAgentProvider>
-        </LeadManagementComponents>
+                </LeadManagementComponents>
+            </LeadProvider>
+        </SalesAgentProvider>
     )
 }
 

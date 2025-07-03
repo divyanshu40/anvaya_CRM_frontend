@@ -1,4 +1,4 @@
-import { useState, useEffect,  createContext} from "react";
+import { useState, useEffect,  createContext, useContext} from "react";
 import AddLeadForm from "../components/LeadForm";
 import EditLeadForm from "../components/EditLeadForm";
 
@@ -13,6 +13,8 @@ const LeadProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [displayAddNewLeadForm, setDisplayAddNewLeadForm] = useState(false);
     const [displayUpdateLeadForm, setDisplayUpdateLeadForm] = useState(false);
+    const [message, setMessage] = useState("");
+
      useEffect(() => {
         setLoading(true);
         fetch("https://anvaya-crm-backend-omega.vercel.app/leads")
@@ -69,7 +71,9 @@ const LeadProvider = ({ children }) => {
         displayUpdateLeadForm,
         setDisplayUpdateLeadForm,
         error,
-        setError
+        setError,
+        message,
+        setMessage
         }}>
             {displayAddNewLeadForm && <AddLeadForm/>}
             {displayUpdateLeadForm && <EditLeadForm/>}

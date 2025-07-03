@@ -30,7 +30,9 @@ const FilterElements = () => {
         tagFilterOption,
         setTagFilterOption,
         sortBy,
-        setSortBy 
+        setSortBy,
+        sourceFilterOption,
+        setSourceFilterOption 
     } = useContext(DisplayComponentContext);
     const { sortedLeads, setSortedLeads} = useContext(LeadContext);
 
@@ -239,7 +241,15 @@ const FilterElements = () => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-end py-4">
-                    <button className="btn btn-primary" onClick={() => setDisplayAddNewLeadForm(true)}>+ Add New Lead</button>
+                    <button className="btn btn-primary" onClick={() =>{
+                         setDisplayAddNewLeadForm(true);
+                         setStatusFilterOption("");
+                         setSalesAgentFilterOption("");
+                         setSourceFilterOption("");
+                         setTagFilterOption("");
+                         setSortBy("");
+                         setSortLeads(false)
+                    }}>+ Add New Lead</button>
                 </div>
             </div>
         </div>
@@ -247,15 +257,6 @@ const FilterElements = () => {
 }
 
 const LeadList = ({obj, backgroundColor}) => {
-
-    const { filteredLeads, 
-        setFilteredLeads, 
-        loading, 
-        setLoading, 
-        error
-    } = useContext(LeadContext);
-    const { sortLeads, setSortLeads, filter, setFilter, sortBy, setSortBy } = useContext(DisplayComponentContext);
-    const { sortedLeads, setSortedLeads } = useContext(LeadContext);
 
 
     return (
@@ -305,7 +306,8 @@ const DisplayLeads = () => {
         setDisplayUpdateLeadForm,
         sortedLeads,
         setSortedLeads ,
-        setFilteredLeads
+        setFilteredLeads, 
+        setMessage
     } = useContext(LeadContext);
     const [selectedLeadId, setSelectedLeadId] = useState("");
     const { 
@@ -314,7 +316,8 @@ const DisplayLeads = () => {
         setFilter,
         setStatusFilterOption,
         setSalesAgentFilterOption,
-        setTagFilterOption
+        setTagFilterOption,
+        setSortBy
     } = useContext(DisplayComponentContext);
 
      const deleteLeadHandler = async (leadId) => {
@@ -335,6 +338,7 @@ const DisplayLeads = () => {
             }
             let responseData = await response.json();
             setFilteredLeads(responseData);
+            setMessage("Lead deleted successfully")
             setFilter({});
             setSortBy("");
             setSortLeads(false);
@@ -342,6 +346,9 @@ const DisplayLeads = () => {
             setSalesAgentFilterOption("");
             setTagFilterOption("");
             setLoading(false);
+            setTimeout(() => {
+                setMessage("")
+            }, 5000);
         } catch(error) {
             console.error('Error: ', error)
         }
@@ -416,6 +423,8 @@ const DisplayComponents = ({children}) => {
     const [statusFilterOption, setStatusFilterOption] = useState("");
     const [salesAgentFilterOption, setSalesAgentFilterOption] = useState("");
     const [tagFilterOption, setTagFilterOption] = useState("");
+    const [sourceFilterOption, setSourceFilterOption] = useState("")
+    const { message } = useContext(LeadContext);
     return (
        <div>
          <div className="row">
@@ -452,9 +461,20 @@ const DisplayComponents = ({children}) => {
                         salesAgentFilterOption,
                         setSalesAgentFilterOption,
                         tagFilterOption,
-                        setTagFilterOption
+                        setTagFilterOption,
+                        sourceFilterOption,
+                        setSourceFilterOption,
                     }}>
                         <div className="container">
+                           {message &&  <div className="row d-flex justify-content-center py-4">
+                                <div className="col-md-4">
+                                    <div className="card" style={{backgroundColor: "grey"}}>
+                                        <div className="card-body text-light">
+                                            <p className="fs-5 fw-medium">{message}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>}
                           {children}
                         </div>
                     </DisplayComponentContext.Provider>
@@ -466,14 +486,14 @@ const DisplayComponents = ({children}) => {
 
 const LeadListPage = () => {
     return (
-        <DisplayComponents>
-            <SalesAgentProvider>
-                <LeadProvider>
+        <SalesAgentProvider>
+            <LeadProvider>
+                <DisplayComponents>
                     <FilterElements/>
                     <DisplayLeads/>
-                </LeadProvider>
-            </SalesAgentProvider>
-        </DisplayComponents>
+                </DisplayComponents>
+            </LeadProvider>
+        </SalesAgentProvider>
     )
 }
 

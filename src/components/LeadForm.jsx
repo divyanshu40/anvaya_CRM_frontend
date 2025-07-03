@@ -1,10 +1,11 @@
 import { useState, useContext } from "react"
 import { SalesAgentContext } from "../contexts/SalesAgentProvider"
 import { LeadContext } from "../contexts/LeadProvider";
+import { DisplayComponentContext } from "../pages/LeadList";
 
 const AddLeadForm = () => {
     const { salesAgents } = useContext(SalesAgentContext);
-    const { leads, setLeads, filteredLeads, setFilteredLeads, displayAddNewLeadForm, setDisplayAddNewLeadForm, loading, setLoading } = useContext(LeadContext);
+    const { leads, setLeads, filteredLeads, setFilteredLeads, displayAddNewLeadForm, setDisplayAddNewLeadForm, loading, setLoading, setMessage } = useContext(LeadContext);
     const [leadData, setLeadData] = useState({
         name: "",
         company: "",
@@ -51,8 +52,12 @@ const AddLeadForm = () => {
             let responseData = await response.json();
             setLeads(responseData);
             setFilteredLeads(responseData);
+            setMessage("Lead added successfully");
             setLoading(false);
             setDisplayAddNewLeadForm(false);
+            setTimeout(() => {
+              setMessage("")
+            }, 5000);
         } catch(error) {
             console.error('Error: ', error);
         }

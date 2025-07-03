@@ -6,6 +6,7 @@ const SalesAgentContext = createContext();
 const SalesAgentProvider = ({children}) => {
     const [salesAgents, setSalesAgents] = useState(null);
     const [displayAddNewAgentForm, setDisplayAddNewAgentForm] = useState(false);
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
         fetch("https://anvaya-crm-backend-omega.vercel.app/salesAgents")
@@ -23,7 +24,7 @@ const SalesAgentProvider = ({children}) => {
         })
     }, []);
     return (
-        <SalesAgentContext.Provider value={{ salesAgents, setSalesAgents, setDisplayAddNewAgentForm }}>
+        <SalesAgentContext.Provider value={{ salesAgents, setSalesAgents, setDisplayAddNewAgentForm, message, setMessage}}>
             {displayAddNewAgentForm ? <SalesAgentForm/> : [children]}
         </SalesAgentContext.Provider>
     )
