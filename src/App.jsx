@@ -228,9 +228,9 @@ const { message } = useContext(LeadContext);
         </div>
         {message && <div className='row py-4 d-flex justify-content-center'>
              <div className='col-md-4'>
-              <div className='card text-light' style={{ backgroundColor: "grey"}}>
+              <div className='card'>
                 <div className='card-body'>
-                  <p className='fs-5 fw-medium'>{message}</p>
+                  <p className='fs-5 fw-medium' style={{ color: "green"}}>{message}</p>
                 </div>
               </div>
              </div>

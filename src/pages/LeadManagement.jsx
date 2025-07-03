@@ -253,9 +253,9 @@ const LeadManagementComponents = ({children}) => {
                     <LeadManagementContext.Provider value={{ id }}>
                         {message && <div className="row d-flex justify-content-center py-4">
                           <div className="col-md-4">
-                            <div className="card" style={{ backgroundColor: "grey"}}>
-                                <div className="card-body text-light">
-                                    <p className="fs-5 fw-medium">{message}</p>
+                            <div className="card">
+                                <div className="card-body">
+                                    <p className="fs-5 fw-medium" style={{ color: "green"}}>{message}</p>
                                 </div>
                             </div>
                           </div>

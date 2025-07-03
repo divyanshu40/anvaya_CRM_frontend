@@ -416,6 +416,8 @@ const DisplayLeads = () => {
     )
 }
 
+
+
 const DisplayComponents = ({children}) => {
     const [sortLeads, setSortLeads] = useState(false);
     const [sortBy, setSortBy] = useState("");
@@ -423,8 +425,8 @@ const DisplayComponents = ({children}) => {
     const [statusFilterOption, setStatusFilterOption] = useState("");
     const [salesAgentFilterOption, setSalesAgentFilterOption] = useState("");
     const [tagFilterOption, setTagFilterOption] = useState("");
-    const [sourceFilterOption, setSourceFilterOption] = useState("")
-    const { message } = useContext(LeadContext);
+    const [sourceFilterOption, setSourceFilterOption] = useState("");
+    const { message } = useContext(LeadContext)
     return (
        <div>
          <div className="row">
@@ -468,9 +470,9 @@ const DisplayComponents = ({children}) => {
                         <div className="container">
                            {message &&  <div className="row d-flex justify-content-center py-4">
                                 <div className="col-md-4">
-                                    <div className="card" style={{backgroundColor: "grey"}}>
-                                        <div className="card-body text-light">
-                                            <p className="fs-5 fw-medium">{message}</p>
+                                    <div className="card">
+                                        <div className="card-body">
+                                            <p className="fs-5 fw-medium" style={{ color: "green"}}>{message}</p>
                                         </div>
                                     </div>
                                 </div>
