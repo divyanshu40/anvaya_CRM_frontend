@@ -6,7 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import App from "./App";
 import LeadListPage from "./pages/LeadList";
 import LeadManagementPage from "./pages/LeadManagement";
-import SalesAgentManagementPage from "./pages/SalesAgentMangement";
+import SalesAgentManagementPage from "./pages/SalesAgentManagement";
 import LeadsByStatusPage from "./pages/LeadsByStatus";
 import LeadsBySalesAgentPage from "./pages/LeadsBySalesAgent";
 import ReportPage from "./pages/Report";
